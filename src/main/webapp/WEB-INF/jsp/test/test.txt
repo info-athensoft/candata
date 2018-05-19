@@ -1,0 +1,21 @@
+webdev-comp-item=Item Management
+webdev-comp-price=Price Management
+webdev-comp-inventory=Inventory Management
+webdev-comp-order=Order Management
+webdev-comp-invoice=Invoice Management
+webdev-comp-cart=Shopping Cart
+webdev-comp-pay=Online Payment
+webdev-comp-news=News and Event
+webdev-comp-comment=User Comment
+webdev-comp-acct=User Account Management
+webdev-comp-uaas=User Authorization and Authentication
+
+webdev-fn-i18n=Multi-language Function
+webdev-fn-mail=Email Function
+webdev-fn-fileupload=File Upload Function
+
+webdev-it-social-fb=Facebook Integration
+webdev-it-social-tw=Twitter Integration
+webdev-it-social-yt=Youtube Integration
+webdev-it-ga=Google Analytics Integration
+webdev-it-gmap=Google Map Integration
