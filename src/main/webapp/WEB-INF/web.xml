@@ -10,15 +10,15 @@
   	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-	  		classpath:com/athensoft/config/application-context.xml
-	  		classpath:com/athensoft/config/dao-context.xml
-	  		classpath:com/athensoft/config/service-context.xml
+	  		classpath*:application-context.xml
+	  		classpath*:dao-context.xml
+	  		classpath*:service-context.xml
   		</param-value>
 	</context-param>
 	
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>classpath:com/athensoft/config/log4j.properties</param-value>
+		<param-value>classpath*:log4j.properties</param-value>
 	</context-param>
 
 	<context-param>
@@ -36,12 +36,12 @@
 	
 	<servlet>
 		<description></description>
-		<display-name>zshmtl</display-name>
-		<servlet-name>zshmtl</servlet-name>
+		<display-name>candata</display-name>
+		<servlet-name>candata</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>zshmtl</servlet-name>
+		<servlet-name>candata</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   <welcome-file-list>
