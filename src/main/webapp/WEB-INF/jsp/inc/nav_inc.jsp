@@ -25,179 +25,93 @@
 				<li class=""><a class="nav-link active" href="/index.html?lang=${loc}"> <spring:message code="menu-home"/> </a></li>
 				
 				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> <spring:message code="menu-web"/> </a>
+					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> 关于我们 </a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/webdev/webdev.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-1"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/webplan.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-2"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/webcustom.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-3"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/websupport.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-4"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/product.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-5"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/case.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-6"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/pricing.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-7"/> </a></li>
-						<li><a class="dropdown-item" href="/webdev/livedemo.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-livedemo"/> </a></li>
-						<!-- 
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}" target="_blank"> <spring:message code="menu-web-8"/> </a></li>
-						 -->
-					</ul></li>
-				
-				
-				<!-- menu - graphic -->
-				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="/graphic/index.html?lang=${loc}"> <spring:message code="menu-graphic"/> </a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/graphic/graphic.html?lang=${loc}" target="_blank"><spring:message code="menu-graphic-1"/></a></li>
-						<li><a class="dropdown-item" href="/graphic/service/catalog.html?lang=${loc}" target="_blank"><spring:message code="menu-graphic-6"/></a></li>
-						<li><a class="dropdown-item" href="/graphic/demo.html?lang=${loc}" target="_blank"><spring:message code="menu-graphic-2"/></a></li>
-						
-						<!-- 
-						<li><a class="dropdown-item" href="/graphic/pricing.html?lang=${loc}" target="_blank"><spring:message code="menu-graphic-4"/></a></li>
-						<li><a class="dropdown-item" href="/support/faq-graphic.html?lang=${loc}" target="_blank"><spring:message code="menu-graphic-5"/></a></li>
-						 
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-4"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-5"/></a></li>
-						-->
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 关于我们 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 核心团队 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 顾问专家</a></li>
 					</ul>
 				</li>
 				
-				
-				<!-- 
 				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="/about/comingsoon.html?lang=${loc}"> <spring:message code="menu-graphic"/> </a>
+					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> 核心技术 </a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-1"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-2"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-3"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-4"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-graphic-5"/></a></li>
-					</ul>
-				</li>
-				  -->
-				
-				<!-- menu - adogo 
-				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="/adogo/index.html?lang=${loc}"> <spring:message code="menu-adogo"/> </a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/adogo/adogo.html?lang=${loc}"><spring:message code="menu-adogo-1"/></a></li>
-						<li><a class="dropdown-item" href="/adogo/quickstart.html?lang=${loc}"><spring:message code="menu-adogo-2"/></a></li>
-						<li><a class="dropdown-item" href="/adogo/register.html?lang=${loc}"><spring:message code="menu-adogo-3"/></a></li>
-					</ul>
-				</li> 
-				-->
-				
-				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="/about/comingsoon.html?lang=${loc}"> <spring:message code="menu-adogo"/> </a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-adogo-1"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-adogo-2"/></a></li>
-						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="menu-adogo-3"/></a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 深度学习 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 神经网络 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 自然语言处理</a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 数据可视化</a></li>
 					</ul>
 				</li>
 				
-				<!-- menu - tour -->
+				<li class="dropdown">
+					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> 产品和服务 </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 智能对话机器人 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 数据分析应用</a></li>
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> 解决方案 </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 方案一 </a></li>
+						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 方案二</a></li>
+					</ul>
+				</li>
+				
+				 
+				<!-- project demo -->
 				<li class="dropdown dropdown-mega">
-					<a class="dropdown-item dropdown-toggle" href="/about/comingsoon.html?lang=${loc}"> <spring:message code="menu-knowledge"/> </a>
+					<a class="dropdown-item dropdown-toggle" href="/about/comingsoon.html?lang=${loc}"> 案例展示 </a>
 					<ul class="dropdown-menu">
 						<li>
 							<div class="dropdown-mega-content">
 								<div class="row">
 									<div class="col-lg-3">
-										<span class="dropdown-mega-sub-title"><spring:message code="knw-software_dev"/></span>
+										<span class="dropdown-mega-sub-title">交通运输业</span>
 										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">Java 8 &nbsp;<span class="tip">new</span></a></li>
-											<!-- 
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Spring</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Design Pattern</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">UML</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Maven</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Eclipse</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Git</a></li>
-											 -->
+											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">纽约曼哈顿出租车智能调度系统支持 </a></li>
 										</ul>
-										<span class="dropdown-mega-sub-title"><spring:message code="knw-ai_bigdata"/></span>
+									</div>
+									
+									
+									<div class="col-lg-3">
+										<span class="dropdown-mega-sub-title">电子商务</span>
 										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/371434460086498878?lang=${loc}">Introduction of Big Data</a></li>
-											<!-- 
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Big Data</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Artificial Intelligence</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Machine Learning</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Python</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Kafka</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Storm</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Samza</a></li>
-											 -->
+											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">日本电子零售价格预测 </a></li>
+										</ul>
+									</div>
+									
+									
+									<div class="col-lg-3">
+										<span class="dropdown-mega-sub-title">金融行业</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">某某集团投资风险分析与控制 </a></li>
 										</ul>
 									</div>
 									
 									<div class="col-lg-3">
-										<span class="dropdown-mega-sub-title"><spring:message code="knw-int_marketing"/></span>
+										<span class="dropdown-mega-sub-title">医疗行业</span>
 										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/1259433881863865818?lang=${loc}">SEO Tips</a></li>
-											<!-- 
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Social Media</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Google Analytics</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Google AdWords</a></li>
-											 -->
-										</ul>
-										<span class="dropdown-mega-sub-title"><spring:message code="knw-design_media"/></span>
-										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/1261644284795524215?lang=${loc}">Thinking in design</a></li>
-											<!-- 
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Graphic Design</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Printing</a></li>
-											 -->
+											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">某某集团投资风险分析与控制 </a></li>
 										</ul>
 									</div>
-									<div class="col-lg-3">
-										<span class="dropdown-mega-sub-title"><spring:message code="menu-edu"/></span>
-										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/371434460137590675?lang=${loc}"><spring:message code="edu-web_developer"/> </a></li>
-											<li><a class="dropdown-item" href="/blog/post/371434460188331722?lang=${loc}"><spring:message code="edu-java_developer"/> </a></li>
-											<li><a class="dropdown-item" href="/blog/post/371434460230674170?lang=${loc}"><spring:message code="edu-data_scientist"/> </a></li>
-											<li><a class="dropdown-item" href="/edu/robotics.html?lang=${loc}"><spring:message code="edu-robotics_kid"/> </a></li>
-										</ul>
-									</div>
-									<div class="col-lg-3">
-										<span class="dropdown-mega-sub-title"><spring:message code="menu-resource"/></span>
-										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="${webapp_name}/rsc/siteindexes.html?lang=${loc}"><spring:message code="rsc-siteindex"/> &nbsp;<span class="tip tip-dark">hot</span></a></li>
-											<!-- 
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Big Data</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Artificial Intelligence</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Machine Learning</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Python</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Kafka</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Storm</a></li>
-											<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}">Samza</a></li>
-											 -->
-										</ul>
-									</div>
+									
 								</div>
 							</div>
 						</li>
 					</ul>
 				</li>
 				
+				
+				
  				<!-- menu - language -->
- 				<!-- 
-				<li class="dropdown">
-					<a class="dropdown-item dropdown-toggle" href="#"> <spring:message code="menu-lang"/> </a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="/index.html?lang=en_US"><img alt="English" src="${img_dir}/language/canada.gif"/>&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="lang_en"/></a></li>
-						<li><a class="dropdown-item" href="/index.html?lang=fr_CA"><img alt="French" src="${img_dir}/language/french.gif"/>&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="lang_fr"/></a></li>
-						<li><a class="dropdown-item" href="/index.html?lang=zh_CN"><img alt="Chinese Simplied" src="${img_dir}/language/chineseS.gif"/>&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="lang_chs"/></a></li>
-						 
-						<li><a class="dropdown-item" href="/index.html?lang=zh_CN"><img alt="Chinese Traditional" src="${img_dir}/language/chineseS.gif"/>&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="lang_cht"/></a></li>
-						
-					</ul>
-				</li>
-				 -->
 				 
 				<li class="dropdown">
 					<a class="dropdown-item dropdown-toggle" href="/about/comingsoon.html?lang=${loc}"> <spring:message code="link-support"/> </a>
 					<ul class="dropdown-menu">
 						<!-- <a class="nav-link" href="/support/support.html?lang=${loc}"> -->
 						<li><a class="dropdown-item" href="/about/comingsoon.html?lang=${loc}"><spring:message code="link-support"/></a></li>
-						<li><a class="dropdown-item" href="/about/aboutus.html?lang=${loc}"><spring:message code="link-about"/></a></li>
 						<li><a class="dropdown-item" href="/support/contactus.html?lang=${loc}"><spring:message code="link-contact"/></a></li>
 					</ul>
 				</li> 
