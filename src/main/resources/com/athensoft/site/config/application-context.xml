@@ -27,20 +27,20 @@
 	/>	
 	
 	<!-- Database connection -->	 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="${jdbc.driver}"></property>
-		<property name="url" value="${jdbc.url}"></property>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driver}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-		<property name="username" value="${jdbc.username}"></property>
-		<property name="maxActive" value="20" />  
-        <property name="initialSize" value="1" />  
-        <property name="maxWait" value="60000" />  
-        <property name="maxIdle" value="15" />  
-        <property name="minIdle" value="5" />  
-        <property name="removeAbandoned" value="true" />  
-        <property name="removeAbandonedTimeout" value="180" />
-        <property name="testOnBorrow" value="true"/>
-    	<property name="validationQuery" value="SELECT 1"/>
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="minPoolSize" value="5"/>
+		<property name="maxPoolSize" value="30"/>
+		<property name="initialPoolSize" value="10"/>
+		<property name="maxIdleTime" value="600"/>
+		<property name="acquireRetryAttempts" value="30" />
+		<property name="breakAfterAcquireFailure" value="true" />
+		<property name="maxStatements" value="0" />
+		<property name="acquireIncrement" value="5"/>
+        <property name="idleConnectionTestPeriod" value="60" />   
 	</bean>
 	
 	<!-- Email gmail smtp conf  NON-SSL-->
