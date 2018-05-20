@@ -16,6 +16,7 @@
 	<context:component-scan base-package="com.athensoft.team.controller"></context:component-scan>
 	<context:component-scan base-package="com.athensoft.blog.controller"></context:component-scan>
 	<context:component-scan base-package="com.athensoft.event.*.controller"></context:component-scan>
+	<context:component-scan base-package="com.candata.**.controller"></context:component-scan>
 	
 
 	<!-- View Resolver -->

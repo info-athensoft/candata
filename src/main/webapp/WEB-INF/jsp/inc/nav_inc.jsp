@@ -70,7 +70,7 @@
 									<div class="col-lg-3">
 										<span class="dropdown-mega-sub-title">交通运输业</span>
 										<ul class="dropdown-mega-sub-nav">
-											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">纽约曼哈顿出租车智能调度系统支持 </a></li>
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
 										</ul>
 									</div>
 									

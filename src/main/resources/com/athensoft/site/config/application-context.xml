@@ -23,7 +23,7 @@
 	<!-- Database properties file support -->
 	<context:property-placeholder
 		ignore-unresolvable="true" 
-		location="classpath*:jdbc-mysql.properties"
+		location="classpath:com/athensoft/site/config/jdbc-mysql.properties"
 	/>	
 	
 	<!-- Database connection -->	 

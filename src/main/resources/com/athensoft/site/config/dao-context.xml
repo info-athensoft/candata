@@ -17,4 +17,8 @@
 		base-package="com.athensoft.blog.dao">
 	</context:component-scan>
 	
+	<context:component-scan 
+		base-package="com.candata.**.dao">
+	</context:component-scan>
+	
 </beans>
