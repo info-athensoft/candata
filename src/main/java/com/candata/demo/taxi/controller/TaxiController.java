@@ -88,4 +88,15 @@ public class TaxiController {
 	public String gotoDynamicTrip(){
 		return "inc_data/dynamic-trip";
 	}
+	
+	@RequestMapping("/taxi-heatmap.html")
+	public String gotoTaxiHeatMap(){
+		return "demo/taxi-heatmap";
+	}
+	
+	@RequestMapping("/taxi-predresult.html")
+	public String gotoPredResult(){
+		return "demo/taxi-predresult";
+	}
+	
 }

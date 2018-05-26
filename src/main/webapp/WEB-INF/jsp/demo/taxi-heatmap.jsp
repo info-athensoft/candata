@@ -126,9 +126,9 @@
 								<h4 class="heading-primary"><spring:message code="webdev-sidebar-title-1"/></h4>
 
 								<ul class="nav nav-list flex-column mb-4 sort-source">
-									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">项目简介</a></li>
+									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-heatmap.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
 									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-predresult.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>
@@ -139,19 +139,15 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 						
 							<!-- overview -->
-							<h3>项目简介</h3>
+							<h3>曼哈顿出租车密度分布动态图</h3>
 							<div class="row">
 								<div class="col">
 									<p class="">
-										<strong>背景说明</strong>
+										<strong>动态图说明</strong>
 										<br/>
 										<spring:message code="webdev-product-content-1-1b"/>
 									</p>
-									<p class="">
-										<strong>预测目标</strong>
-										<br/>
-										预测目标说明
-									</p>
+									
 																	
 								</div>
 							</div>
@@ -160,17 +156,10 @@
 							
 							<!-- main business -->
 							
-							<h3>Chatbot test</h3>
-							
-						
-								<input type="text" id="question" size="60"/>
-								<input type="button" value="ASK NOW" onclick="ask();"/>
-								
-								<hr class="tall"/>
-								
-								<div id="chatresult">
-									
-								</div>
+							<!-- google map -->
+							<div>
+							<iframe src="/demo/taxi/dynamic-trip.html" width="100%" height="800px"></iframe>
+							</div>
 							
 							<hr class="tall"/>
 							
@@ -250,55 +239,8 @@
 
 		<!-- chart data -->
 		<script type="text/javascript">
-		//$(document).ready(function(){
-			
-		//});
 		
-		function ask(){
-			var question = $("#question").val();
-			//alert("question:"+question);
-			
-			/*
-			var businessObject = {
-					question:question
-			};
-			
-			var param = JSON.stringify(businessObject)
-			*/
-			//param = encodeURI(param);  //tomcat 8.5
-			//alert(param);
-			
-			$.ajax({
-		        type    	:   "POST",
-		     	url     	: 	"http://127.0.0.1:5000/reply?question="+question,
-		     	/*url     	: 	"http://workstation:5000/reply?question="+question,*/
-		     	/*contentType	:	"application/json;charset=UTF-8",*/		//avoid HTTP 415 error
-		     	/* data		:	param, */
-		        dataType	:   "json",
-		        timeout 	:   10000,
-		        /*crossDomain : true,*/
-		        
-		        
-		        success:function(msg){
-		        	//alert("success");
-		        	
-		        	var a = msg.ans;
-		        	//alert(a);
-		        	
-		        	//$("#chatresult").append("<p>Me: <b>"+question+"</b></p>");
-		        	$("#chatresult").prepend("<p>Me: <b>"+question+"</b></p><p>ChatBot: "+a+"</p><button class='btn btn-primary btn-sm'>Good</button>&nbsp;<button class='btn btn-primary btn-sm'>Not Good</button>");
-		        	
-		            //location.href="/member-index.html?u="+userName;
-		        },
-		        error:function(data){
-		            alert("ERROR: ajax failed.");
-		            
-		        },            
-		        complete: function(XMLHttpRequest, textStatus){
-		            //reset to avoid duplication
-		        }
-		    });
-		}
+		
 		</script>
 	</body>
 </html>

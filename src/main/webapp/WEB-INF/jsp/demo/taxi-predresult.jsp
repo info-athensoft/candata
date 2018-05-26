@@ -126,11 +126,11 @@
 								<h4 class="heading-primary"><spring:message code="webdev-sidebar-title-1"/></h4>
 
 								<ul class="nav nav-list flex-column mb-4 sort-source">
-									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">项目简介</a></li>
+									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-heatmap.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
 									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-predresult.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>
 								</ul>
 							</aside>
@@ -139,18 +139,23 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 						
 							<!-- overview -->
-							<h3>项目简介</h3>
+							<h3>预测结果与分析</h3>
 							<div class="row">
 								<div class="col">
 									<p class="">
-										<strong>背景说明</strong>
+										<strong>结果说明</strong>
 										<br/>
 										<spring:message code="webdev-product-content-1-1b"/>
 									</p>
 									<p class="">
-										<strong>预测目标</strong>
+										<strong>预测结果分析</strong>
 										<br/>
-										预测目标说明
+										分析效果
+									</p>
+									<p class="">
+										<strong>应用</strong>
+										<br/>
+										应用效果
 									</p>
 																	
 								</div>
@@ -159,18 +164,7 @@
 							<hr class="invisible mt-3 mb-4">
 							
 							<!-- main business -->
-							
-							<h3>Chatbot test</h3>
-							
-						
-								<input type="text" id="question" size="60"/>
-								<input type="button" value="ASK NOW" onclick="ask();"/>
-								
-								<hr class="tall"/>
-								
-								<div id="chatresult">
-									
-								</div>
+							<div id="container" style="width:100%; height:400px;"></div>
 							
 							<hr class="tall"/>
 							
@@ -250,55 +244,118 @@
 
 		<!-- chart data -->
 		<script type="text/javascript">
-		//$(document).ready(function(){
-			
-		//});
 		
-		function ask(){
-			var question = $("#question").val();
-			//alert("question:"+question);
+		$(document).ready(function(){
 			
-			/*
-			var businessObject = {
-					question:question
-			};
-			
-			var param = JSON.stringify(businessObject)
-			*/
-			//param = encodeURI(param);  //tomcat 8.5
-			//alert(param);
+			var param;
 			
 			$.ajax({
-		        type    	:   "POST",
-		     	url     	: 	"http://127.0.0.1:5000/reply?question="+question,
-		     	/*url     	: 	"http://workstation:5000/reply?question="+question,*/
-		     	/*contentType	:	"application/json;charset=UTF-8",*/		//avoid HTTP 415 error
-		     	/* data		:	param, */
-		        dataType	:   "json",
-		        timeout 	:   10000,
-		        /*crossDomain : true,*/
+				type    :   "get",
+		        contentType : 'application/json; charset=utf-8',
+		     	url     : 	"/demo/taxi/taxidata",
+		     	/* data	:	param, */
+		        dataType:   "json",
+		        timeout :   10000,
 		        
-		        
-		        success:function(msg){
+		        success:function(data){
 		        	//alert("success");
-		        	
-		        	var a = msg.ans;
-		        	//alert(a);
-		        	
-		        	//$("#chatresult").append("<p>Me: <b>"+question+"</b></p>");
-		        	$("#chatresult").prepend("<p>Me: <b>"+question+"</b></p><p>ChatBot: "+a+"</p><button class='btn btn-primary btn-sm'>Good</button>&nbsp;<button class='btn btn-primary btn-sm'>Not Good</button>");
-		        	
-		            //location.href="/member-index.html?u="+userName;
+		        	//console.log(data.predData);
+		        	var predData = data.predData;
+		        	var realData = data.realData;
+		        	var labelData = data.labelData;
+		            plot(predData,realData,labelData);
 		        },
 		        error:function(data){
-		            alert("ERROR: ajax failed.");
+		           alert("ERROR: failed.");
 		            
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){
 		            //reset to avoid duplication
+		        }     
+				
+				
+			});
+			
+		});
+		
+		
+		function plot(predData,realData,labelData){
+			//var predData = [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
+			//var realData = [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
+			
+		    var myChart = Highcharts.chart('container', {
+
+		        title: {
+		            text: '运营时间预测结果'
+		        },
+
+		        subtitle: {
+		            text: '准确度示意图'
+		        },
+				
+		       	xAxis: {
+		            title: {
+		                text: 'Order ID'
+		            },
+		            categories: labelData
+		        },
+		        
+		        yAxis: {
+		            title: {
+		                text: 'Trip Duration in Second'
+		            }
+		        },
+		        legend: {
+		            layout: 'vertical',
+		            align: 'right',
+		            verticalAlign: 'middle'
+		        },
+
+		        plotOptions: {
+		            series: {
+		            	label: {
+		                    connectorAllowed: false
+		                }
+		        		/*,
+		                pointStart: 1001*/
+		               /* data: ['a','a2','a3','a4','a5','a6','a7','a8','a9','a10'] */
+		               
+		               
+		            }
+		        },
+
+		        series: [{
+		            name: 'Pred',
+		            data: predData
+		        }, {
+		            name: 'Real',
+		            data: realData
+		        }],
+
+		        responsive: {
+		            rules: [{
+		                condition: {
+		                    maxWidth: 500
+		                },
+		                chartOptions: {
+		                    legend: {
+		                        layout: 'horizontal',
+		                        align: 'center',
+		                        verticalAlign: 'bottom'
+		                    }
+		                }
+		            }]
 		        }
+
 		    });
 		}
+		
+		/*
+		
+		$(function () { 
+			
+			
+		}); */
 		</script>
 	</body>
 </html>
