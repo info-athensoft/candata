@@ -68,7 +68,40 @@
 							<div class="dropdown-mega-content">
 								<div class="row">
 									<div class="col-lg-3">
-										<span class="dropdown-mega-sub-title">交通运输业</span>
+										<span class="dropdown-mega-sub-title">智慧城市 01</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
+										</ul>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">城市便捷自行车投放优化系统 </a></li>
+										</ul>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">高速路运行轨迹预测系统 </a></li>
+										</ul>
+										
+										<span class="dropdown-mega-sub-title">智慧人力 02</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">薪资行情预测 </a></li>
+										</ul>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">亚马逊员工资源权限访问智能管理 </a></li>
+										</ul>
+									</div>
+									
+									
+									<div class="col-lg-3">
+										<span class="dropdown-mega-sub-title">智慧电商 09</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}"> </a></li>
+										</ul>
+										<span class="dropdown-mega-sub-title">智慧零售 09</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">奥托集团商品分类模型 </a></li>
+										</ul>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">沃尔玛零售商品销量预测 </a></li>
+										</ul>
+										<span class="dropdown-mega-sub-title">智慧物流 05</span>
 										<ul class="dropdown-mega-sub-nav">
 											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
 										</ul>
@@ -76,21 +109,34 @@
 									
 									
 									<div class="col-lg-3">
+										<span class="dropdown-mega-sub-title">智慧健康 04</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
+										</ul>
+										<span class="dropdown-mega-sub-title">智慧民生 03</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
+										</ul>
+										<span class="dropdown-mega-sub-title">智慧社交 06</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
+										</ul>
+									</div>
+									
+									<div class="col-lg-3">
+										<span class="dropdown-mega-sub-title">交通运输业</span>
+										<ul class="dropdown-mega-sub-nav">
+											<li><a class="dropdown-item" href="/demo/taxi/index.html?lang=${loc}">纽约出租车智能调度系统支持 </a></li>
+										</ul>
+										
 										<span class="dropdown-mega-sub-title">电子商务</span>
 										<ul class="dropdown-mega-sub-nav">
 											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">日本电子零售价格预测 </a></li>
 										</ul>
-									</div>
-									
-									
-									<div class="col-lg-3">
 										<span class="dropdown-mega-sub-title">金融行业</span>
 										<ul class="dropdown-mega-sub-nav">
 											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">某某集团投资风险分析与控制 </a></li>
 										</ul>
-									</div>
-									
-									<div class="col-lg-3">
 										<span class="dropdown-mega-sub-title">医疗行业</span>
 										<ul class="dropdown-mega-sub-nav">
 											<li><a class="dropdown-item" href="/blog/post/371434458460318498?lang=${loc}">某某集团投资风险分析与控制 </a></li>
