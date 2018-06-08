@@ -84,10 +84,6 @@ public class TaxiController {
 		return model;
 	}
 	
-	@RequestMapping("/dynamic-trip.html")
-	public String gotoDynamicTrip(){
-		return "inc_data/dynamic-trip";
-	}
 	
 	@RequestMapping("/taxi-heatmap.html")
 	public String gotoTaxiHeatMap(){
@@ -97,6 +93,28 @@ public class TaxiController {
 	@RequestMapping("/taxi-predresult.html")
 	public String gotoPredResult(){
 		return "demo/taxi-predresult";
+	}
+	
+	
+	/**
+	 * embedded chart
+	 * 
+	 * @return
+	 */
+	
+	@RequestMapping("/dynamic-trip.html")
+	public String gotoDynamicTrip(){
+		return "inc_data/taxi/dynamic-trip";
+	}
+	
+	@RequestMapping("/dynamic-trip-2.html")
+	public String gotoDynamicTrip2(){
+		return "inc_data/taxi/dynamic-trip-2";
+	}
+	
+	@RequestMapping("/chord-from-df.html")
+	public String gotoChordFromDf(){
+		return "inc_data/taxi/chord-from-df";
 	}
 	
 }

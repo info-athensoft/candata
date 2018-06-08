@@ -111,7 +111,7 @@
 						</div>
 						<div class="row">
 							<div class="col">
-								<h1>纽约市出租车运营时间优化系统</h1>
+								<h1>智能对话机器人</h1>
 							</div>
 						</div>
 					</div>
@@ -126,12 +126,8 @@
 								<h4 class="heading-primary"><spring:message code="webdev-sidebar-title-1"/></h4>
 
 								<ul class="nav nav-list flex-column mb-4 sort-source">
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-heatmap.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
-									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
-									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">产品简介</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">参考</a></li>
 								</ul>
 							</aside>
 						</div>
@@ -139,13 +135,13 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 						
 							<!-- overview -->
-							<h3>预测结果与分析</h3>
+							<h3>智能对话机器人简介</h3>
 							<div class="row">
 								<div class="col">
 									<p class="">
-										<strong>图表说明</strong><br/>
-										X轴： ORDER ID 表示某一次出租车出车订单编号<br/>
-										Y轴： 该次出车业务运行的总耗时，以秒为单位<br/>
+										<strong>背景说明</strong>
+										<br/>
+										该版本为测试版
 									</p>
 									
 																	
@@ -155,33 +151,17 @@
 							<hr class="invisible mt-3 mb-4">
 							
 							<!-- main business -->
-							<div id="container" style="width:100%; height:400px;"></div>
 							
-							<p class="">
-								<strong>图例说明</strong><br/>
-								点击右侧 -Pred- 可以开关预测结果曲线<br/>
-								点击右侧 -Real- 可以开关实际记录曲线<br/>
-							</p>
+							<h3>在线演示</h3>
+								<input type="text" id="question" size="60"/>
+								<input type="button" value="提问" onclick="ask();"/>
+								
+								<hr class="tall"/>
+								
+								<div id="chatresult">
+									
+								</div>
 							
-							<p class="">
-								<strong>如何理解预测图表？</strong><br/>
-								两条曲线重合度越高，说明预测结果越接近实际发生的结果。<br/>
-								那么从而证明该系统对未来没有发生的出租车某次运营时间能进行较准确的预测；即只要知道乘客计划或实际的上车时间就能提前预知到达目的地所需的时间。
-点击右侧 -Real- 可以开关实际记录曲线<br/>
-							</p>
-							
-							<p class="">
-								<strong>预测结果分析</strong>
-								<br/>
-								分析效果
-							</p>
-							<p class="">
-								<strong>应用</strong>
-								<br/>
-								应用效果
-							</p>
-							
-							<hr class="tall"/>
 							
 							<!-- call-to-action -->
 							<section class="call-to-action featured featured-primary mb-5">
@@ -259,118 +239,55 @@
 
 		<!-- chart data -->
 		<script type="text/javascript">
-		
-		$(document).ready(function(){
+		//$(document).ready(function(){
 			
-			var param;
+		//});
+		
+		function ask(){
+			var question = $("#question").val();
+			//alert("question:"+question);
+			
+			/*
+			var businessObject = {
+					question:question
+			};
+			
+			var param = JSON.stringify(businessObject)
+			*/
+			//param = encodeURI(param);  //tomcat 8.5
+			//alert(param);
 			
 			$.ajax({
-				type    :   "get",
-		        contentType : 'application/json; charset=utf-8',
-		     	url     : 	"/demo/taxi/taxidata",
-		     	/* data	:	param, */
-		        dataType:   "json",
-		        timeout :   10000,
+		        type    	:   "POST",
+		     	url     	: 	"http://127.0.0.1:5000/reply?question="+question,
+		     	/*url     	: 	"http://workstation:5000/reply?question="+question,*/
+		     	/*contentType	:	"application/json;charset=UTF-8",*/		//avoid HTTP 415 error
+		     	/* data		:	param, */
+		        dataType	:   "json",
+		        timeout 	:   10000,
+		        /*crossDomain : true,*/
 		        
-		        success:function(data){
+		        
+		        success:function(msg){
 		        	//alert("success");
-		        	//console.log(data.predData);
-		        	var predData = data.predData;
-		        	var realData = data.realData;
-		        	var labelData = data.labelData;
-		            plot(predData,realData,labelData);
+		        	
+		        	var a = msg.ans;
+		        	//alert(a);
+		        	
+		        	//$("#chatresult").append("<p>Me: <b>"+question+"</b></p>");
+		        	$("#chatresult").prepend("<p>Me: <b>"+question+"</b></p><p>ChatBot: "+a+"</p><button class='btn btn-primary btn-sm'>Good</button>&nbsp;<button class='btn btn-primary btn-sm'>Not Good</button>");
+		        	
+		            //location.href="/member-index.html?u="+userName;
 		        },
 		        error:function(data){
-		           alert("ERROR: failed.");
+		            alert("ERROR: ajax failed.");
 		            
 		        },            
 		        complete: function(XMLHttpRequest, textStatus){
 		            //reset to avoid duplication
-		        }     
-				
-				
-			});
-			
-		});
-		
-		
-		function plot(predData,realData,labelData){
-			//var predData = [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
-			//var realData = [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
-			
-		    var myChart = Highcharts.chart('container', {
-
-		        title: {
-		            text: '出租车运营时间预测结果'
-		        },
-
-		        subtitle: {
-		            text: '准确度示意图'
-		        },
-				
-		       	xAxis: {
-		            title: {
-		                text: 'Order ID'
-		            },
-		            categories: labelData
-		        },
-		        
-		        yAxis: {
-		            title: {
-		                text: 'Trip Duration in Second'
-		            }
-		        },
-		        legend: {
-		            layout: 'vertical',
-		            align: 'right',
-		            verticalAlign: 'middle'
-		        },
-
-		        plotOptions: {
-		            series: {
-		            	label: {
-		                    connectorAllowed: false
-		                }
-		        		/*,
-		                pointStart: 1001*/
-		               /* data: ['a','a2','a3','a4','a5','a6','a7','a8','a9','a10'] */
-		               
-		               
-		            }
-		        },
-
-		        series: [{
-		            name: 'Pred',
-		            data: predData
-		        }, {
-		            name: 'Real',
-		            data: realData
-		        }],
-
-		        responsive: {
-		            rules: [{
-		                condition: {
-		                    maxWidth: 500
-		                },
-		                chartOptions: {
-		                    legend: {
-		                        layout: 'horizontal',
-		                        align: 'center',
-		                        verticalAlign: 'bottom'
-		                    }
-		                }
-		            }]
 		        }
-
 		    });
 		}
-		
-		/*
-		
-		$(function () { 
-			
-			
-		}); */
 		</script>
 	</body>
 </html>

@@ -46,7 +46,7 @@
 				<li class="dropdown">
 					<a class="dropdown-item dropdown-toggle" href="#?lang=${loc}"> 产品和服务 </a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 智能对话机器人 </a></li>
+						<li><a class="dropdown-item" href="/prod/chatbot/index.html?lang=${loc}" target="_blank"> 智能对话机器人 </a></li>
 						<li><a class="dropdown-item" href="#?lang=${loc}" target="_blank"> 数据分析应用</a></li>
 					</ul>
 				</li>

@@ -128,7 +128,7 @@
 								<ul class="nav nav-list flex-column mb-4 sort-source">
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
-									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车运营动态图</a></li>
 									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-predresult.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>
@@ -139,45 +139,43 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 						
 							<!-- overview -->
-							<h3>曼哈顿出租车密度分布动态图</h3>
+							<h3>曼哈顿出租车运营动态图</h3>
 							<div class="row">
 								<div class="col">
 									<p class="">
 										<strong>动态图说明</strong>
 										<br/>
-										<spring:message code="webdev-product-content-1-1b"/>
+										说明1
 									</p>
-									
-																	
 								</div>
 							</div>
 
 							<hr class="invisible mt-3 mb-4">
 							
-							<!-- main business -->
-							
 							<!-- google map -->
 							<div>
-							<iframe src="/demo/taxi/dynamic-trip.html" width="100%" height="800px"></iframe>
+							<iframe src="/demo/taxi/dynamic-trip.html" width="80%" height="600px"></iframe>
 							</div>
 							
 							<hr class="tall"/>
 							
-							<!-- call-to-action -->
-							<section class="call-to-action featured featured-primary mb-5">
-								<div class="col-sm-9 col-lg-9">
-									<div class="call-to-action-content">
-										<p class="mb-0"><spring:message code="common-cta-title"/></p>
-									</div>
+							<div class="row">
+								<div class="col">
+									<p class="">
+										<strong>动态图说明</strong>
+										<br/>
+										说明2
+									</p>
 								</div>
-								<div class="col-sm-3 col-lg-3">
-									<div class="call-to-action-btn">
-										<a href="/support/contactus.html?lang=${loc}" target="_blank" class="btn btn-lg btn-primary"><spring:message code="common-cta-btn"/></a>
-									</div>
-								</div>
-							</section>
-							<!-- END call-to-action -->
+							</div>
 							
+							<div>
+							<iframe src="/demo/taxi/dynamic-trip-2.html" width="80%" height="600px"></iframe>
+							</div>
+							
+							
+							
+							<hr class="invisible mt-3 mb-4">
 						</div>
 					</div>
 
