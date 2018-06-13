@@ -129,6 +129,7 @@
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
 									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车运营动态图</a></li>
+									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-passengerload.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;载客量按日期时间分布图</a></li>
 									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-predresult.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>

@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.candata.demo.taxi.entity.ExtractedData;
 import com.candata.demo.taxi.entity.PredResult;
+import com.candata.demo.taxi.model.PassengerLoad;
+import com.candata.demo.taxi.service.TaxiDataService;
 import com.candata.demo.taxi.service.TaxiService;
 
 @Controller
@@ -23,6 +26,13 @@ public class TaxiController {
 	@Autowired
 	public void setTaxiService(TaxiService taxiService){
 		this.taxiService = taxiService;
+	}
+	
+	private TaxiDataService taxiDataService;
+	
+	@Autowired
+	public void setTaxiDataService(TaxiDataService taxiDataService){
+		this.taxiDataService = taxiDataService;
 	}
 	
 	@RequestMapping("/")
@@ -51,7 +61,7 @@ public class TaxiController {
 	
 	@RequestMapping(value="/taxidata",method=RequestMethod.GET,produces="application/json")
 	@ResponseBody
-	public Map<String, Object> getTaxiJson(){
+	public Map<String, Object> getTaxiPredResultJson(){
 		
 		List<PredResult> predResultList = taxiService.getPredResult();
 		
@@ -85,6 +95,85 @@ public class TaxiController {
 	}
 	
 	
+	@RequestMapping(value="/taxisourcedata",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String, Object> getTaxiPassengerLoadJson(){
+		final int VENDOR_ID_1 = 0;
+		final int VENDOR_ID_2 = 1;
+		
+		List<ExtractedData> listVendor1 = taxiDataService.getDataByVendor(VENDOR_ID_1);
+		List<ExtractedData> listVendor2 = taxiDataService.getDataByVendor(VENDOR_ID_2);
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("listVendor1", listVendor1);
+		model.put("listVendor2", listVendor2);
+		return model;
+	}
+	
+	@RequestMapping(value="/taxipassengerloadbydatetime",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String, Object> getTaxiPassengerLoadGroupByDatetimeJson(){
+		final int VENDOR_ID_1 = 0;
+		final int VENDOR_ID_2 = 1;
+		
+		List<PassengerLoad> vendor1 = taxiDataService.getGroupByDatetime(VENDOR_ID_1);
+		List<PassengerLoad> vendor2 = taxiDataService.getGroupByDatetime(VENDOR_ID_2);
+		
+		List<Integer> listPassengerLoad1 = new ArrayList<Integer>();
+		List<Integer> listPassengerLoad2 = new ArrayList<Integer>();
+		List<String> listLabelDatetime = new ArrayList<String>();
+		
+		for(PassengerLoad p : vendor1){
+			listPassengerLoad1.add(p.getPassengerCount());
+			listLabelDatetime.add(p.getStrDatetime());
+		}
+		
+		for(PassengerLoad p : vendor2){
+			listPassengerLoad2.add(p.getPassengerCount());
+//			listLabelDatetime.add(p.getStrDatetime());
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("listPassengerLoad1", listPassengerLoad1);
+		model.put("listPassengerLoad2", listPassengerLoad2);
+		model.put("labelData", listLabelDatetime);
+		return model;
+	}
+	
+	
+	@RequestMapping(value="/taxipassengerloadbymonth",method=RequestMethod.GET,produces="application/json")
+	@ResponseBody
+	public Map<String, Object> getTaxiPassengerLoadGroupByMonthJson(){
+		final int VENDOR_ID_1 = 0;
+		final int VENDOR_ID_2 = 1;
+		
+		List<PassengerLoad> vendor1 = taxiDataService.getGroupByMonth(VENDOR_ID_1);
+		List<PassengerLoad> vendor2 = taxiDataService.getGroupByMonth(VENDOR_ID_2);
+		
+		List<Integer> listPassengerLoad1 = new ArrayList<Integer>();
+		List<Integer> listPassengerLoad2 = new ArrayList<Integer>();
+		List<String> listLabelDatetime = new ArrayList<String>();
+		
+		for(PassengerLoad p : vendor1){
+			listPassengerLoad1.add(p.getPassengerCount());
+			listLabelDatetime.add(p.getStrDatetime());
+		}
+		
+		for(PassengerLoad p : vendor2){
+			listPassengerLoad2.add(p.getPassengerCount());
+//			listLabelDatetime.add(p.getStrDatetime());
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String, Object> model = mav.getModel();
+		model.put("listPassengerLoad1", listPassengerLoad1);
+		model.put("listPassengerLoad2", listPassengerLoad2);
+		model.put("labelData", listLabelDatetime);
+		return model;
+	}
+	
+	
 	@RequestMapping("/taxi-heatmap.html")
 	public String gotoTaxiHeatMap(){
 		return "demo/taxi-heatmap";
@@ -93,6 +182,11 @@ public class TaxiController {
 	@RequestMapping("/taxi-predresult.html")
 	public String gotoPredResult(){
 		return "demo/taxi-predresult";
+	}
+	
+	@RequestMapping("/taxi-passengerload.html")
+	public String gotoPassengerLoad(){
+		return "demo/taxi-passengerload";
 	}
 	
 	

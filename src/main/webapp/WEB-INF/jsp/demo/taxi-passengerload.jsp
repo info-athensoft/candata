@@ -126,12 +126,12 @@
 								<h4 class="heading-primary"><spring:message code="webdev-sidebar-title-1"/></h4>
 
 								<ul class="nav nav-list flex-column mb-4 sort-source">
-									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">项目简介</a></li>
+									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/index.html?lang=${loc}" target="_blank">项目简介</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/webplan.html?lang=${loc}" target="_blank">数据视图</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-heatmap.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车运营动态图</a></li>
+									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-heatmap.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;曼哈顿出租车密度分布动态图</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-passengerload.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;载客量按日期时间分布图</a></li>
 									<li class="nav-item"><a class="nav-link" href="">预测分析</a></li>
-									<li class="nav-item"><a class="nav-link" href="${webapp_name}/demo/taxi/taxi-predresult.html?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
+									<li class="nav-item"><a class="nav-link" href="#?lang=${loc}" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;运营时间预测</a></li>
 									<li class="nav-item"><a class="nav-link" href="${webapp_name}/webdev/websupport.html?lang=${loc}" target="_blank">参考</a></li>
 								</ul>
 							</aside>
@@ -140,70 +140,54 @@
 						<div class="col-lg-9 order-1 order-lg-2">
 						
 							<!-- overview -->
-							<h3>项目简介</h3>
+							<h3>预测结果与分析</h3>
 							<div class="row">
 								<div class="col">
-									
 									<p class="">
-										城市公交系统（公交汽车和出租车）的调度优化是目前大数据背景下的一个应用热点。本案例利用纽约市城市出租车运行数据展示了一个基于机器学习和大数据分析的出租车运行时间预测系统。
+										<strong>图表说明</strong><br/>
+										X轴： ORDER ID 表示某一次出租车出车订单编号<br/>
+										Y轴： 该次出车业务运行的总耗时，以秒为单位<br/>
 									</p>
 									
-									<p class="">
-										<strong>背景说明</strong><br/>
-在比如纽约，东京，上海，北京和香港等人口众多，交通繁忙和拥堵的大都市，城市公交系统异常繁忙。如何应用大量的出租车运营数据对出租车派发系统的优化和效率提高成为城市出租车管理部门非常重要的工作。
-									</p>
-									
-									<p class="">
-										<strong>当前的问题和困境</strong>
-										<br/>
-										1. 出租车管理公司的困难与诉求<br/>
-										出租车运营派发系统由于乘客单位时间内叫单过多，等候派发的出租车在系统队列里过多，导致派发系统不够灵活
-出租车运营公司需要预先估价，而乘车时间受到多维度因素影响，仅仅依靠地图距离测算不够精确（要描述解释清楚）
-
-
-										<br/><br/>
-										
-										
-										2. 乘客的困难和诉求<br/>
-										乘客希望在出行前预先知道什么时候乘车最优，即便是可以在线地图查询到实时道路拥堵情况，也还是很难精确预估从一点到另一点的时间。
-
-高峰时间段、天气变化时、交通拥堵发生，打车难，订车难，合理安排订车、发车时间。
-
-乘客有时需要知道在哪个时间段订车比较合理。由于一天当中，出租车的可用情况分布是不均匀的，留出适当的时间弹性，避免延误和意外。
-
-但是也不可无限扩大时间弹性，造成时间浪费，因此需要精确安排打车时间，节约时间成本。
-
-可以帮助游客、外来访客等暂住人口，了解打车费用，避免宰客。从而规范化出租车行业服务质量，提高城市形象。提升边际效益。
-										
-									</p>
-									
-									<p class="">
-										<strong>预测目标</strong><br/>
-										利用机器学习和数据分析算法，定制化的特征工程来精确预测每一单出租车运营时间<br/>
-									</p>
-									
-									<p class="">
-										<strong>商业意义</strong>
-									</p>
-									<ul>
-										<li>通过精准预测运营时间，可以指导派发系统过滤掉预估时间较长的车号，使其不占用派发系统队列，从而提高派发系统效率，减少冗余。</li>
-										<li>精准预测运营时间给乘客和出租车司机精准参考</li>
-										<li>为运营公司定价提供精准可靠的量化依据</li>
-									</ul>
-									
-									<p class="">
-										<strong>解决方案</strong>
-									</p>
-									<ul>
-										<li>基于深入的特征工程分析</li>
-										<li>基于分布式的机器学习和多模型组合算法</li>
-									</ul>
 																	
 								</div>
 							</div>
 
 							<hr class="invisible mt-3 mb-4">
 							
+							<!-- main business -->
+							<div id="data-filter">
+								选取时间单位：
+								<button class="btn btn-primary" onclick="showByMonth();">Month</button>
+								<!-- <button class="btn btn-primary" onclick="showByWeek();">Week</button>  -->
+								<button class="btn btn-primary" onclick="showByDay();">Day</button>
+							</div>
+							<div id="container" style="width:100%; height:400px;"></div>
+							
+							<p class="">
+								<strong>图例说明</strong><br/>
+								点击右侧 -Pred- 可以开关预测结果曲线<br/>
+								点击右侧 -Real- 可以开关实际记录曲线<br/>
+							</p>
+							
+							<p class="">
+								<strong>如何理解预测图表？</strong><br/>
+								两条曲线重合度越高，说明预测结果越接近实际发生的结果。<br/>
+								<br/>
+							</p>
+							
+							<p class="">
+								<strong>预测结果分析</strong>
+								<br/>
+								分析效果
+							</p>
+							<p class="">
+								<strong>应用</strong>
+								<br/>
+								应用效果
+							</p>
+							
+							<hr class="tall"/>
 							
 							<!-- call-to-action -->
 							<section class="call-to-action featured featured-primary mb-5">
@@ -281,9 +265,188 @@
 
 		<!-- chart data -->
 		<script type="text/javascript">
-		//$(document).ready(function(){
+		
+		$(document).ready(function(){
+			showWithJSON();
+		});
+		
+		
+		function showWithJSON(){
+			$.ajax({
+				type    :   "get",
+		        contentType : 'application/json; charset=utf-8',
+		     	url: "/json/taxi.json",	   
+		        dataType:   "json",
+		        timeout :   100000,
+		        
+		        beforeSend : function(){
+		        	$("#container").html("<br/><br/>处理JSON中，请耐心等待...");
+		        },
+		        
+		        success:function(data){
+		        	//alert("success");
+		        	//console.log(data.predData);
+		        	var vendor1 = data.listPassengerLoad1;
+		        	var vendor2 = data.listPassengerLoad2;
+		        	var labelData = data.labelData;
+		            plot(vendor1,vendor2,labelData);
+		        },
+		        error:function(data){
+		           alert("ERROR: failed.");
+		            
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }     
+				
+				
+			});
+		}
+		
+		
+		function show(){
+			var param;
 			
-		//});
+			$.ajax({
+				type    :   "get",
+		        contentType : 'application/json; charset=utf-8',
+		     	url     : 	"/demo/taxi/taxipassengerloadbydatetime",
+		     	/* data	:	param, */
+		        dataType:   "json",
+		        timeout :   100000,
+		        
+		        beforeSend : function(){
+		        	$("#container").html("<br/><br/>处理中，请耐心等待...");
+		        },
+		        
+		        success:function(data){
+		        	//alert("success");
+		        	//console.log(data.predData);
+		        	var vendor1 = data.listPassengerLoad1;
+		        	var vendor2 = data.listPassengerLoad2;
+		        	var labelData = data.labelData;
+		            plot(vendor1,vendor2,labelData);
+		        },
+		        error:function(data){
+		           alert("ERROR: failed.");
+		            
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }     
+				
+				
+			});
+		}
+		
+		
+		function showByMonth(){
+			$.ajax({
+				type    :   "get",
+		        contentType : 'application/json; charset=utf-8',
+		     	url: "/json/taxibymonth.json",	   
+		        dataType:   "json",
+		        timeout :   100000,
+		        
+		        beforeSend : function(){
+		        	$("#container").html("<br/><br/>处理JSON中，请耐心等待...");
+		        },
+		        
+		        success:function(data){
+		        	//alert("success");
+		        	//console.log(data.predData);
+		        	var vendor1 = data.listPassengerLoad1;
+		        	var vendor2 = data.listPassengerLoad2;
+		        	var labelData = data.labelData;
+		            plot(vendor1,vendor2,labelData);
+		        },
+		        error:function(data){
+		           alert("ERROR: failed.");
+		            
+		        },            
+		        complete: function(XMLHttpRequest, textStatus){
+		            //reset to avoid duplication
+		        }     
+				
+				
+			});
+		}
+		
+		function showByDay(){
+			showWithJSON();
+		}
+		
+		
+		function plot(predData,realData,labelData){
+			//var predData = [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175];
+			//var realData = [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434];
+			
+		    var myChart = Highcharts.chart('container', {
+
+		        title: {
+		            text: '载客量按日期时间分布图'
+		        },
+
+		        subtitle: {
+		            text: '按指定时间单位分组'
+		        },
+				
+		       	xAxis: {
+		            title: {
+		                text: '日期时间粒度单位'
+		            },
+		            categories: labelData
+		        },
+		        
+		        yAxis: {
+		            title: {
+		                text: '载客数小计'
+		            }
+		        },
+		        legend: {
+		            layout: 'vertical',
+		            align: 'right',
+		            verticalAlign: 'middle'
+		        },
+
+		        plotOptions: {
+		            series: {
+		            	label: {
+		                    connectorAllowed: false
+		                }
+		        		/*,
+		                pointStart: 1001*/
+		               /* data: ['a','a2','a3','a4','a5','a6','a7','a8','a9','a10'] */
+		               
+		               
+		            }
+		        },
+
+		        series: [{
+		            name: 'Vendor 1',
+		            data: predData
+		        }, {
+		            name: 'Vendor 2',
+		            data: realData
+		        }],
+
+		        responsive: {
+		            rules: [{
+		                condition: {
+		                    maxWidth: 500
+		                },
+		                chartOptions: {
+		                    legend: {
+		                        layout: 'horizontal',
+		                        align: 'center',
+		                        verticalAlign: 'bottom'
+		                    }
+		                }
+		            }]
+		        }
+
+		    });
+		}
 		
 		
 		</script>

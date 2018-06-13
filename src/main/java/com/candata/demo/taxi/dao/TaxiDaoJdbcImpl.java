@@ -22,7 +22,7 @@ import com.candata.demo.taxi.entity.PredResult;
 @Qualifier("taxiDaoJdbcImpl")
 public class TaxiDaoJdbcImpl implements TaxiDao {
 	
-	private static final String TABLE = "valid_pred";
+	private static final String TABLE = "taxi_valid_pred";
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
