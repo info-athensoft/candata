@@ -59,5 +59,4 @@
 	<mvc:resources mapping="/video/**" location="video/" />
 	<mvc:resources mapping="/resources/**" location="resources/" />
 	<mvc:resources mapping="/json/**" location="json/" />
-	<mvc:resources mapping="/sitemap.xml" location="/" />
 </beans>
